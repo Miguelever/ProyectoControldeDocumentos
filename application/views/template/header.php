@@ -36,17 +36,33 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="<?= base_url('documentos') ?>">
+                <a class="nav-link active" href="<?= base_url('documentos/mostrar') ?>">
                   <span data-feather="home"></span>
                   Documentos <span class="sr-only">(current)</span>
                 </a>
-              </li>
               <li class="nav-item">
-                <a class="nav-link" href="<?= base_url('usuarios') ?>">
-                  <span data-feather="file"></span>
-                  Usuarios
+                <a class="nav-link active" href="<?= base_url('documentos/ingresar') ?>">
+                  <span data-feather="home"></span>
+                  Nuevo Documento <span class="sr-only">(current)</span>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="<?= base_url('documentos') ?>">
+                  <span data-feather="home"></span>
+                  Documentos Pendientes <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('personas/mostrar') ?>">
+                  <span data-feather="file"></span>
+                  Personas
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                  Nuevo Usuario
+                </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">

@@ -1,0 +1,30 @@
+body{
+    font-family: "SF UI Display Ultralight", monospace;
+
+    background: #F7F8F9;
+    color: #5B5A5A;
+    font-size: 14px;
+
+}
+.welcome{
+    font-size: 48px;
+    letter-spacing: 10px;
+}
+.login-container{
+    /*e; vh indica la altura que ocupa en la pantalla*/
+    height: 100vh;
+    width: 100%;
+}
+.login-form{
+    max-width: 100%;
+    width: 370px;
+    padding: 15px;
+    margin: auto;
+}
+.form-control{
+    font-size: 24px;
+    font-family: "SF UI Display Light", monospace;
+    letter-spacing: 1px;
+    background: #F7F8F9;
+
+}
