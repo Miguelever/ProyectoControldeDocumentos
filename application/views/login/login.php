@@ -17,7 +17,7 @@
 
 <body>
     <div class="login-container d-flex align-items-center justify-content-center">
-        <form class="login-form" action="<?= base_url('documentos') ?>" >
+        <form class="login-form" action="<?= base_url('documentos/mostrar') ?>" >
 <!--            el mb indica margen bot-->
             <h1 class="welcome mb-5 font-weight-light text-uppercase">Bienvenido</h1>
             <div class="form-group">
