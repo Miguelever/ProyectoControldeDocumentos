@@ -10,6 +10,7 @@
       <th scope="col">Cargo</th>
       <th scope="col">Correo</th>
       <th scope="col">Celular</th>
+      <th scope="col" class="text-center">Acciones</th>
 
     </tr>
   </thead>
@@ -24,6 +25,10 @@
         	<td><?= $persona['cargo']; ?></td>
         	<td><?= $persona['correo']; ?></td>
         	<td><?= $persona['celular']; ?></td>
+          <td align="center">
+                <a href="<?= base_url('Personas/editar/'.$persona['id']); ?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Editar</a> | 
+                <a href="<?= base_url('Personas/eliminar/'.$persona['id']); ?>" class="text-danger" onClick="return confirm('¿Está seguro que desea eliminar este registro?');"><i class="fa fa-fw fa-trash"></i> Eliminar</a>
+          </td>
 
     	</tr>
 

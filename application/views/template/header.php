@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,7 +8,7 @@
     <!--<link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">-->
 
     <title>Proyecto Control de Documentos</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
 
     <!-- Bootstrap core CSS -->
@@ -54,7 +53,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('personas/mostrar') ?>">
-                  <span data-feather="file"></span>
+                  <span data-feather="users"></span>
                   Personas
                 </a>
               </li>
