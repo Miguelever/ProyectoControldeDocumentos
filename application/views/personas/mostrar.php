@@ -1,5 +1,8 @@
 <h1>Personas</h1>
-<br><br>
+<p align="right">
+  <a class="btn btn-primary" href="<?= base_url('personas/crear') ?>" role="button">Ingresar Nuevo</a>
+</p>
+<br>
 <table class="table">
   <thead class="thead-dark">
     <tr>

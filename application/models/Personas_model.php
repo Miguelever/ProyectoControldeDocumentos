@@ -27,6 +27,12 @@ class Personas_model extends CI_Model {
         $this->db->where('id', $dni);
         $this->db->update('persona', $data);
     }
+    
+    // Método para insertar un nuevo registro en tabla persona
+    public function insert($data)
+    {
+        return $this->db->insert('persona', $data);
+    }
 
 
 }

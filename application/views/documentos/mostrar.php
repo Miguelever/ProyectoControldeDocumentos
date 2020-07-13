@@ -11,6 +11,7 @@
       <th scope="col">Fecha de Vencimiento</th>
       <th scope="col">Usuario ID</th>
       <th scope="col">Estado</th>
+      <th scope="col" class="text-center">Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +26,10 @@
         	<td><?= $doc['fecha_vencimiento']; ?></td>
         	<td><?= $doc['usuario_id']; ?></td>
         	<td><?= $doc['estado']; ?></td>
+          <td align="center">
+                <a href="<?= base_url('Documentos/editar/'.$doc['expediente']); ?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Editar</a>  
+                <a href="<?= base_url('Documentos/eliminar/'.$doc['expediente']); ?>" class="text-danger" onClick="return confirm('¿Está seguro que desea eliminar este registro?');"><i class="fa fa-fw fa-trash"></i> Eliminar</a>
+          </td>
 
     	</tr>
 
