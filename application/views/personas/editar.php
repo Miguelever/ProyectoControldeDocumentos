@@ -10,38 +10,38 @@
 <form action="<?= base_url('personas/actualizar/'.$persona->id) ?>" method ="POST">
 	<div class="form-group row">
 		<div class="col-sm-6">
-			<label for="dni">DNI</label>
+			<label for="dni">DNI. *</label>
 			<input type="text" class="form-control" id="id" name="id" placeholder="Ingrese DNI" value="<?= $persona->id ?>">
 		</div>
 		<div class="col-sm-6">
 			<label for="cui">CUI</label>
-			<input type="text" class="form-control" id="cui" name="cui" placeholder="Ingrese CUI" value="<?=  $persona->cui ?>">
+			<input type="text" class="form-control" id="cui" name="cui" placeholder="Ingrese CUI (opcional)" value="<?=  $persona->cui ?>">
 		</div>
 	</div>
 	<div class="form-group row">
 		<div class="col-sm-6">
-			<label for="nombre">Nombres</label>
+			<label for="nombre">Nombres. *</label>
 			<input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese nombres" value="<?= $persona->nombre  ?>">
 		</div>
 		<div class="col-sm-6">
-			<label for="apellidos">Apellidos</label>
+			<label for="apellidos">Apellidos. *</label>
 			<input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Ingrese apellidos" value="<?= $persona->apellidos  ?>">
 		</div>
 	</div>
 	<div class="form-group row">
 		<div class="col-sm-6">
-			<label for="cargo">Cargo</label>
+			<label for="cargo">Cargo. *</label>
 			<input type="text" class="form-control" id="cargo" name="cargo" placeholder="Ingrese cargo" value="<?= $persona->cargo ?>">
 		</div>
 		<div class="col-sm-6">
-			<label for="correo">Correo</label>
+			<label for="correo">Correo. *</label>
 			<input type="text" class="form-control" id="correo" name="correo" placeholder="Ingrese correo" value="<?= $persona->correo  ?>">
 		</div>
 	</div>
 	<div class="form-group row">
 		<div class="col-sm-6">
-			<label for="celular">Celular</label>
-			<input type="text" class="form-control" id="celular" name="celular" placeholder="Ingrese celular" value="<?= $persona->celular ?>">
+			<label for="celular">Celular.</label>
+			<input type="text" class="form-control" id="celular" name="celular" placeholder="Ingrese celular (opcional)" value="<?= $persona->celular ?>">
 		</div>
 	</div>
 
