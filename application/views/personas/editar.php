@@ -1,6 +1,10 @@
 <h1>Edición</h1>
 
-
+<?php if (validation_errors() != NULL) {?>
+<div class="alert alert-danger" role="alert">
+    <?php echo validation_errors(); ?>
+</div>
+<?php } ?>
 
 
 <form action="<?= base_url('personas/actualizar/'.$persona->id) ?>" method ="POST">

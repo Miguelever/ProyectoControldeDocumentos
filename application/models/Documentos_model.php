@@ -28,6 +28,12 @@ class Documentos_model extends CI_Model {
         $this->db->update('documentos', $data);
     }
 
+    // Método para insertar un nuevo registro en tabla documentos
+    public function insert($data)
+    {
+        return $this->db->insert('documentos', $data);
+    }
+
 
 }
 

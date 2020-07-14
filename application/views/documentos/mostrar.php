@@ -1,5 +1,8 @@
 <h1>Bienvenido a Documentos</h1>
-<br><br>
+<p align="right">
+  <a class="btn btn-primary" href="<?= base_url('documentos/crear') ?>" role="button">Ingresar Nuevo</a>
+</p>
+<br>
 <table class="table">
   <thead class="thead-dark">
     <tr>

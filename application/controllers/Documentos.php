@@ -58,6 +58,31 @@ class Documentos extends CI_Controller {
 
 	}
 
+	public function crear()
+	{
+		$this->load->view('template/header');
+		$this->load->view('documentos/ingresar');
+		$this->load->view('template/footer');
+	}
+
+	public function guardar()
+	{
+
+			$data = array('expediente' => $this->input->post('expediente'),
+						'nombre_doc'=> $this->input->post('nombre_doc'),
+						'tipo_doc'=> $this->input->post('tipo_doc'),
+						'persona_id'=> $this->input->post('persona_id'),
+						'fecha_entrega'=> $this->input->post('fecha_entrega'),
+						'fecha_vencimiento'=> $this->input->post('fecha_vencimiento'),
+						'usuario_id'=> $this->input->post('usuario_id'),
+						'estado'=> $this->input->post('estado'));
+
+			$this->Documentos_model->insert($data);
+			redirect(base_url('documentos/mostrar'));
+		
+	}
+
+
 }
 
 /* End of file Documentos.php */

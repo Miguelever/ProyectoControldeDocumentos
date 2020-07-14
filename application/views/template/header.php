@@ -39,11 +39,6 @@
                   <span data-feather="home"></span>
                   Documentos <span class="sr-only">(current)</span>
                 </a>
-              <li class="nav-item">
-                <a class="nav-link active" href="<?= base_url('documentos/ingresar') ?>">
-                  <span data-feather="home"></span>
-                  Nuevo Documento <span class="sr-only">(current)</span>
-                </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="<?= base_url('documentos') ?>">
@@ -55,12 +50,6 @@
                 <a class="nav-link" href="<?= base_url('personas/mostrar') ?>">
                   <span data-feather="users"></span>
                   Personas
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="users"></span>
-                  Nuevo Usuario
                 </a>
               </li>
               <li class="nav-item">
