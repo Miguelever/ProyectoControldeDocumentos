@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Documentos_model extends CI_Model {
 
-    public function getDataDocumentos()
+    /*public function getDataDocumentos()
     {
     	$query = $this->db->get('documentos');
     	return $query->result_array();
-    }
+    }*/
 	
 	// Eliminando registro de la tabla documento por su id(dni)
     public function delete($expe)
@@ -32,6 +32,21 @@ class Documentos_model extends CI_Model {
     public function insert($data)
     {
         return $this->db->insert('documentos', $data);
+    }
+
+    // Consigue intervalos de la tabla documentos
+    public function get_documentos($limit, $offset)
+    {
+        $this->db->limit($limit, $offset);
+        $query = $this->db->get('documentos');
+
+        return $query->result_array();
+    }
+
+    // Conteo de tabla documentos
+    public function get_count()
+    {
+        return $this->db->count_all('documentos');
     }
 
 
