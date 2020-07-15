@@ -3,11 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Personas_model extends CI_Model {
 
-	public function getDataPersonas()
+	/*public function getDataPersonas()
 	{
 		$query = $this->db->get('persona');
 		return $query->result_array();
-	}
+	}*/
 
 	// Eliminando registro de la tabla persona por su id(id)
     public function delete($id)
@@ -34,7 +34,20 @@ class Personas_model extends CI_Model {
         return $this->db->insert('persona', $data);
     }
 
+    // Consigue intervalos de la tabla persona
+    public function get_personas($limit, $offset )
+    {
+        $this->db->limit($limit, $offset);
+        $query = $this->db->get('persona');
 
+        return $query->result_array();   
+    }
+
+    // Conteo de tabla persona
+    public function get_count()
+    {
+        return $this->db->count_all('persona');
+    }
 }
 
 /* End of file Personas_model.php */

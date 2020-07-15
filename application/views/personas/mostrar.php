@@ -41,3 +41,6 @@
 
   </tbody>
 </table>
+<br>
+<p><?= $links ?></p>
+<br>

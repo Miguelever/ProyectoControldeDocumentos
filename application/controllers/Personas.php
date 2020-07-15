@@ -14,7 +14,59 @@ class Personas extends CI_Controller {
 
 	public function mostrar()
 	{
-		$data['personas'] = $this->Personas_model->getDataPersonas();
+		$this->load->library('pagination');
+		
+		$config['base_url'] = base_url('personas/mostrar');
+		$config['total_rows'] = $this->Personas_model->get_count();
+		$config['per_page'] = 15;
+		$config['uri_segment'] = 3;
+		// $config['num_links'] = 3;
+		$config['first_link'] = 'Inicio';
+		$config['last_link'] = 'Final';
+		$config['full_tag_open'] = '<ul class="pagination justify-content-center">';
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li class="page-item">';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['next_tag_open'] = '<li class="page-item">';
+        $config['next_tagl_close'] = '</a></li>';
+        $config['prev_tag_open'] = '<li class="page-item">';
+        $config['prev_tagl_close'] = '</li>';
+        $config['first_tag_open'] = '<li class="page-item">';
+        $config['first_tagl_close'] = '</li>';
+        $config['last_tag_open'] = '<li class="page-item">';
+        $config['last_tagl_close'] = '</a></li>';
+        $config['attributes'] = array('class' => 'page-link');
+		/*$config['full_tag_open'] = '<ul class="pagination">';
+		$config['full_tag_close'] = '</ul>';
+		$config['first_link'] = 'Inicio';
+		$config['first_tag_open'] = '<li class="page-item">';
+		$config['first_tag_close'] = '</li>';
+		$config['last_link'] = 'Final';
+		$config['last_tag_open'] = '<li class="page-item">';
+		$config['last_tag_close'] = '</li>';
+		$config['next_link'] = '&gt;';
+		$config['next_tag_open'] = '<div>';
+		$config['next_tag_close'] = '</div>';
+		$config['prev_link'] = '&lt;';
+		$config['prev_tag_open'] = '<div>';
+		$config['prev_tag_close'] = '</div>';
+		$config['cur_tag_open'] = '<b>';
+		$config['cur_tag_close'] = '</b>';*/
+		
+		$this->pagination->initialize($config);
+
+		$page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+		
+		$data["links"] = $this->pagination->create_links();
+
+		$data['personas'] = $this->Personas_model->get_personas($config['per_page'] , $page);
+
+
+
+
+		//$data['personas'] = $this->Personas_model->getDataPersonas();
 		$this->load->view('template/header');
 		$this->load->view('personas/mostrar', $data);
 		$this->load->view('template/footer');
