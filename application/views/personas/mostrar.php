@@ -21,7 +21,7 @@
   
   	<?php foreach ($personas as $persona): ?>  
     	<tr>
-      		<th scope="row"><?php echo $persona['id']; ?></th>
+      		<th scope="row"><?php echo $persona['dni']; ?></th>
       		<td><?= $persona['cui']; ?></td>
       		<td><?= $persona['nombre']; ?></td>
       		<td><?= $persona['apellidos']; ?></td>

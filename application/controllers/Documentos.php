@@ -45,7 +45,14 @@ class Documentos extends CI_Controller {
     public function actualizar($expe)
 	{
 
-		$this->form_validation->set_rules('expediente', 'Expediente', 'trim|required|is_unique[documentos.expediente]', array('required' => 'El ingreso de expediente es obligatorio', 'is_unique' => 'El expediente ya se encuentra registrado'));
+		if ($this->input->post('expediente') != $expe) 
+		{
+			$expe_unique = '|is_unique[documentos.expediente]';
+		} else {
+			$expe_unique = '';
+		}
+		
+		$this->form_validation->set_rules('expediente', 'Expediente', 'trim|required'.$expe_unique, array('required' => 'El ingreso de expediente es obligatorio', 'is_unique' => 'El expediente ya se encuentra registrado'));
 			$this->form_validation->set_rules('nombre_doc', 'Nombre del Documento', 'trim|required', array('required' => 'El ingreso del Nombre del Documento es obligatorio'));
 			$this->form_validation->set_rules('tipo_doc', 'Tipo de Documento', 'trim|required', array('required' => 'El ingreso del Tipo de Documento es obligatorio'));
 			$this->form_validation->set_rules('persona_id', 'Persona ID', 'trim|required|numeric', array('required' => 'El ingreso de Persona ID es obligatorio', 'numeric'=> 'El ingreso de Persona ID es con números'));
@@ -53,6 +60,7 @@ class Documentos extends CI_Controller {
 			$this->form_validation->set_rules('fecha_vencimiento', 'Fecha de Vencimiento', 'trim|required', array('required' => 'El ingreso del la Fecha de Vencimiento es obligatorio'));
 			$this->form_validation->set_rules('usuario_id', 'Usuario ID', 'trim|required', array('required' => 'El ingreso del Usuario ID es obligatorio'));
 			$this->form_validation->set_rules('estado', 'Estado', 'trim|required', array('required' => 'El ingreso del Estado es obligatorio'));
+			$this->form_validation->set_rules('directorio', 'Directorio', 'trim|required', array('required' => 'El ingreso del directorio es obligatorio'));
 
 			if ($this->form_validation->run() == FALSE) 
 		    {
@@ -70,7 +78,8 @@ class Documentos extends CI_Controller {
 								'fecha_entrega'=> $this->input->post('fecha_entrega'),
 								'fecha_vencimiento'=> $this->input->post('fecha_vencimiento'),
 								'usuario_id'=> $this->input->post('usuario_id'),
-								'estado'=> $this->input->post('estado')	);
+								'estado'=> $this->input->post('estado'),	
+								'directorio'=> $this->input->post('directorio'));
 
 				$this->Documentos_model->update($expe,$data);
 				redirect(base_url('documentos/mostrar'));
@@ -96,6 +105,7 @@ class Documentos extends CI_Controller {
 			$this->form_validation->set_rules('fecha_vencimiento', 'Fecha de Vencimiento', 'trim|required', array('required' => 'El ingreso del la Fecha de Vencimiento es obligatorio'));
 			$this->form_validation->set_rules('usuario_id', 'Usuario ID', 'trim|required', array('required' => 'El ingreso del Usuario ID es obligatorio'));
 			$this->form_validation->set_rules('estado', 'Estado', 'trim|required', array('required' => 'El ingreso del Estado es obligatorio'));
+			$this->form_validation->set_rules('directorio', 'Directorio', 'trim|required', array('required' => 'El ingreso del directorio es obligatorio'));
 
 
 
@@ -114,7 +124,8 @@ class Documentos extends CI_Controller {
 							'fecha_entrega'=> $this->input->post('fecha_entrega'),
 							'fecha_vencimiento'=> $this->input->post('fecha_vencimiento'),
 							'usuario_id'=> $this->input->post('usuario_id'),
-							'estado'=> $this->input->post('estado'));
+							'estado'=> $this->input->post('estado'),
+							'directorio'=> $this->input->post('directorio'));
 
 				$this->Documentos_model->insert($data);
 				redirect(base_url('documentos/mostrar'));

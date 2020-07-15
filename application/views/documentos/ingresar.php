@@ -1,29 +1,3 @@
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Red Social</title>
-
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
-	<link rel="stylesheet" href="css/fontello.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/estilos.css">
-	<link rel="stylesheet" href="fonts/fonts.css">
-	<link href="/css/dropzone.min.css" rel="stylesheet" type="text/css">
-	<script src="js/dropzone.min.js" type="text/javascript"></script>
-</head>
-
-
-<body>
-
-	<header>
-		
-	</header>
-
-		<main class="container">
--->
 <h1>Ingresar</h1>
 
 <?php if (validation_errors() != NULL) {?>
@@ -79,6 +53,12 @@
 		<div class="col-sm-6">
 			<label for="estado">Estado del Documento. *</label>
 			<input type="text" class="form-control" id="estado" name="estado" value="<?= set_value('estado'); ?>" placeholder="Estado del documento">
+		</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-sm-6">
+			<label for="directorio">Directorio. * </label>
+			<input type="text" class="form-control" id="directorio" name="directorio" value="<?= set_value('directorio'); ?>" placeholder="Directorio">
 		</div>
 	</div>
 

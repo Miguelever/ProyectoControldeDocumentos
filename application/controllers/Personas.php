@@ -20,27 +20,39 @@ class Personas extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function eliminar($dni)
+	public function eliminar($id)
 	{
-		$this->Personas_model->delete($dni);
+		$this->Personas_model->delete($id);
 
 		redirect(base_url('personas/mostrar'));
 	}
 
-	public function editar($dni)
+	public function editar($id)
 	{
-		$data['persona'] = $this->Personas_model->get_by_id($dni);
+		$data['persona'] = $this->Personas_model->get_by_id($id);
 		$this->load->view('template/header');
 		$this->load->view('personas/editar', $data);
 		$this->load->view('template/footer');
 	}
 
 
-    public function actualizar($dni)
+    public function actualizar($id)
 	{
 
+
 		// Reglas de validación para el formulario
-		$this->form_validation->set_rules('id', 'DNI', 'trim|required|numeric|is_unique[persona.id]', array('required' => 'El ingreso de DNI es obligatorio', 'numeric' => 'El ingreso de DNI es con´números', 'is_unique' => 'El DNI ya se encuentra registrado'));
+		$original_dni = $this->db->query( "SELECT dni FROM persona WHERE id= ".$id)->row()->dni;
+		if ($this->input->post('dni') != $original_dni) 
+		{
+			$dni_unique = '|is_unique[persona.dni]';
+		} 
+		else 
+		{
+			$dni_unique = '';
+		}
+		
+
+		$this->form_validation->set_rules('dni', 'DNI', 'trim|required|numeric'.$dni_unique, array('required' => 'El ingreso de DNI es obligatorio', 'numeric' => 'El ingreso de DNI es con´números','is_unique' => 'El DNI ya se encuentra registrado'));
 		$this->form_validation->set_rules('cui', 'CUI', 'trim|numeric|min_length[8]',array('numeric' => 'El ingreso de CUI es con números', 'min_length' => 'Ingrese 8 dígitos' ));
 		$this->form_validation->set_rules('nombre', 'Nombres', 'trim|required', array('required' => 'Ingreso de Nombre obligatorio'));
 		$this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required', array('required' => 'Ingreso de Apellidos obligatorio'));
@@ -51,14 +63,15 @@ class Personas extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) 
         {
-        	$data['persona'] = $this->Personas_model->get_by_id($dni);
+        	$data['persona'] = $this->Personas_model->get_by_id($id);
         	$this->load->view('template/header');
 			$this->load->view('personas/editar', $data);
 			$this->load->view('template/footer');
         } 
         else 
         {
-			$data = array('id' => $this->input->post('id'),
+			$data = array('id' => $id,
+							'dni' => $this->input->post('dni'),
 							'cui'=> $this->input->post('cui'),
 							'nombre'=> $this->input->post('nombre'),
 							'apellidos'=> $this->input->post('apellidos'),
@@ -66,7 +79,7 @@ class Personas extends CI_Controller {
 							'correo'=> $this->input->post('correo'),
 							'celular'=> $this->input->post('celular')	);
 
-			$this->Personas_model->update($dni,$data);
+			$this->Personas_model->update($id,$data);
 			redirect(base_url('personas/mostrar'));
 		}
 	}
@@ -80,7 +93,7 @@ class Personas extends CI_Controller {
 
 	public function guardar()
 	{
-		$this->form_validation->set_rules('id', 'DNI', 'trim|required|numeric|is_unique[persona.id]', array('required' => 'El ingreso de DNI es obligatorio', 'numeric' => 'El ingreso de DNI es con´números', 'is_unique' => 'El DNI ya se encuentra registrado'));
+		$this->form_validation->set_rules('dni', 'DNI', 'trim|required|numeric|is_unique[persona.dni]', array('required' => 'El ingreso de DNI es obligatorio', 'numeric' => 'El ingreso de DNI es con´números', 'is_unique' => 'El DNI ya se encuentra registrado'));
 		$this->form_validation->set_rules('cui', 'CUI', 'trim|numeric|min_length[8]',array('numeric' => 'El ingreso de CUI es con números', 'min_length' => 'Ingrese 8 dígitos' ));
 		$this->form_validation->set_rules('nombre', 'Nombres', 'trim|required', array('required' => 'Ingreso de Nombre obligatorio'));
 		$this->form_validation->set_rules('apellidos', 'Apellidos', 'trim|required', array('required' => 'Ingreso de Apellidos obligatorio'));
@@ -108,7 +121,7 @@ class Personas extends CI_Controller {
         } 
         else 
         {
-        	$data = array('id' => $this->input->post('id'),
+        	$data = array('dni' => $this->input->post('dni'),
 						'cui'=> $this->input->post('cui'),
 						'nombre'=> $this->input->post('nombre'),
 						'apellidos'=> $this->input->post('apellidos'),

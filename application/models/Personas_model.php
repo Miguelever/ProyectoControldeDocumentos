@@ -9,22 +9,22 @@ class Personas_model extends CI_Model {
 		return $query->result_array();
 	}
 
-	// Eliminando registro de la tabla persona por su id(dni)
-    public function delete($dni)
+	// Eliminando registro de la tabla persona por su id(id)
+    public function delete($id)
     {
-    	$this->db->where('id', $dni);
+    	$this->db->where('id', $id);
     	$this->db->delete('persona');
     }
 
-    // Obteniendo registro en base al dni
-    public function get_by_id($dni)
+    // Obteniendo registro en base al id
+    public function get_by_id($id)
     {
-    	return $this->db->get_where('persona', array('id' => $dni ))->row();
-    	// select * from persona where id = $dni limit 1;
+    	return $this->db->get_where('persona', array('id' => $id ))->row();
+    	// select * from persona where id = $id limit 1;
     }
 
-    public function update($dni, $data) {
-        $this->db->where('id', $dni);
+    public function update($id, $data) {
+        $this->db->where('id', $id);
         $this->db->update('persona', $data);
     }
     

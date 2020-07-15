@@ -11,7 +11,7 @@
 	<div class="form-group row">
 		<div class="col-sm-6">
 			<label for="dni">DNI. *</label>
-			<input type="text" class="form-control" id="id" name="id" maxlength="8" value="<?= set_value('id'); ?>" placeholder="Ingrese DNI">
+			<input type="text" class="form-control" id="dni" name="dni" maxlength="8" value="<?= set_value('dni'); ?>" placeholder="Ingrese DNI">
 		</div>
 		<div class="col-sm-6">
 			<label for="cui">CUI.</label>

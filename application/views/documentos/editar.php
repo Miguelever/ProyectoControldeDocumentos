@@ -48,6 +48,12 @@
 		</div>
 
 	</div>
+	<div class="form-group row">
+		<div class="col-sm-6">
+			<label for="directorio">Directorio. * </label>
+			<input type="text" class="form-control" id="directorio" name="directorio" value="<?= set_value('directorio'); ?>" placeholder="Directorio">
+		</div>
+	</div>
 
 	<button type="submit" class="btn btn-primary">Actualizar</button>
 

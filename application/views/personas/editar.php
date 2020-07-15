@@ -11,7 +11,7 @@
 	<div class="form-group row">
 		<div class="col-sm-6">
 			<label for="dni">DNI. *</label>
-			<input type="text" class="form-control" id="id" name="id" placeholder="Ingrese DNI" value="<?= $persona->id ?>">
+			<input type="text" class="form-control" id="dni" name="dni" placeholder="Ingrese DNI" value="<?= $persona->dni ?>">
 		</div>
 		<div class="col-sm-6">
 			<label for="cui">CUI</label>
