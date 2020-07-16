@@ -29,7 +29,22 @@
         	<td><?= $doc['fecha_entrega']; ?></td>
         	<td><?= $doc['fecha_vencimiento']; ?></td>
         	<td><?= $doc['usuario_id']; ?></td>
-        	<td><?= $doc['estado']; ?></td>
+        	<td><?php if ($doc['estado'] == 'archivado')
+                   {
+                    echo '<span class="badge badge-pill badge-success">'.'Archivado'.'</span>';
+                    } else if ($doc['estado'] == 'pendiente') {
+                      echo '<span class="badge badge-pill badge-info">'.'Pendiente'.'</span>';
+                    }
+                    else if ($doc['estado'] == 'anulado') {
+                      echo '<span class="badge badge-pill badge-danger">'.'Anulado'.'</span>';
+                    }
+                    else
+                    {
+                      echo '<span class="badge badge-pill badge-warning">'.$doc['estado'].'</span>';
+                    }
+                      
+
+          ?></td>
           <td><?= $doc['directorio']; ?></td>
           <td align="center">
                 <a href="<?= base_url('Documentos/editar/'.$doc['expediente']); ?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Editar</a>  
