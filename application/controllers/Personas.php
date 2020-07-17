@@ -14,6 +14,7 @@ class Personas extends CI_Controller {
 
 	public function mostrar()
 	{
+		
 		$this->load->library('pagination');
 		
 		$config['base_url'] = base_url('personas/mostrar');
@@ -63,13 +64,42 @@ class Personas extends CI_Controller {
 
 		$data['personas'] = $this->Personas_model->get_personas($config['per_page'] , $page);
 
-
-
-
 		//$data['personas'] = $this->Personas_model->getDataPersonas();
 		$this->load->view('template/header');
 		$this->load->view('personas/mostrar', $data);
 		$this->load->view('template/footer');
+	}
+
+	public function buscar()
+	{
+		if ($this->input->post('action') == 'Buscar') 
+		{
+			$array = array(
+					'dni' => $this->input->post('dni'),
+					'cui'=> $this->input->post('cui'),
+					'nombre'=> $this->input->post('nombre'),
+					'apellidos'=> $this->input->post('apellidos'),
+					'cargo'=> $this->input->post('cargo'),
+					'correo'=> $this->input->post('correo'),
+					'celular'=> $this->input->post('celular')
+			);
+			// Guardar variables globales 
+			$this->session->set_userdata( $array );
+		}
+		else
+		{
+			// Delete
+			$this->session->unset_userdata('dni');
+			$this->session->unset_userdata('cui');
+			$this->session->unset_userdata('nombre');
+			$this->session->unset_userdata('apellidos');
+			$this->session->unset_userdata('cargo');
+			$this->session->unset_userdata('correo');
+			$this->session->unset_userdata('celular');
+		}
+
+		redirect(base_url('personas/mostrar'));
+		
 	}
 
 	public function eliminar($id)
