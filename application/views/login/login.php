@@ -35,7 +35,7 @@
       *********************************************************************************************************************************************************** -->
   <div id="login-page">
     <div class="container">
-      <form class="form-login" action="index.html">
+      <form class="form-login" action="<?= base_url('documentos/mostrar')?>" method="POST">
         <h2 class="form-login-heading">Ingresar Ahora</h2>
         <div class="login-wrap">
           <input type="text" class="form-control" placeholder="Usuario" autofocus>
@@ -44,7 +44,7 @@
           <label class="checkbox">
             <a data-toggle="modal" href="login.html#myModal"> ¿Olvidaste tu contraseña?</a>
             </label>
-          <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> ENTRAR</button>
+          <button class="btn btn-theme btn-block" href="<?= base_url('documentos/mostrar')?>" type="submit"><i class="fa fa-lock"></i> ENTRAR</button>
           <hr>
           <div class="registration">
             ¿Todavía no tienes una cuenta?<br/>
