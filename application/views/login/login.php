@@ -83,7 +83,7 @@
   <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
   <script type="text/javascript" src="<?= base_url('assets/lib/jquery.backstretch.min.js')?>"></script>
   <script>
-    $.backstretch("<?= base_url('assets/img/login-bg.jpg')?>", {
+    $.backstretch("<?= base_url('assets/img/ctrldocs-bg.jpg')?>", {
       speed: 500
     });
   </script>

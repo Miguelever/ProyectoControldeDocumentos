@@ -3,7 +3,7 @@
   <a class="btn btn-primary" href="<?= base_url('documentos/crear') ?>" role="button">Ingresar Nuevo</a>
 </p>
 <br>
-<table class="table">
+<table class="table" > 
   <thead class="thead-dark">
     <tr>
       <th scope="col">Expediente</th>
