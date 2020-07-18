@@ -37,6 +37,16 @@ class Documentos_model extends CI_Model {
     // Consigue intervalos de la tabla documentos
     public function get_documentos($limit, $offset)
     {
+        $this->db->like('expediente', $this->session->userdata('expediente'));
+        $this->db->like('nombre_doc', $this->session->userdata('npmbre_doc'));
+        $this->db->like('tipo_doc', $this->session->userdata('tipo_doc'));
+        $this->db->like('persona_id', $this->session->userdata('persona_id'));
+        $this->db->like('fecha_entrega', $this->session->userdata('fecha_entrega'));
+        $this->db->like('fecha_vencimiento', $this->session->userdata('fecha_vencimiento'));
+        $this->db->like('usuario_id', $this->session->userdata('usuario_id'));
+        $this->db->like('estado', $this->session->userdata('estado'));
+        $this->db->like('directorio', $this->session->userdata('directorio'));
+
         $this->db->limit($limit, $offset);
         $query = $this->db->get('documentos');
 
@@ -46,7 +56,20 @@ class Documentos_model extends CI_Model {
     // Conteo de tabla documentos
     public function get_count()
     {
-        return $this->db->count_all('documentos');
+        
+        $this->db->like('expediente', $this->session->userdata('expediente'));
+        $this->db->like('nombre_doc', $this->session->userdata('npmbre_doc'));
+        $this->db->like('tipo_doc', $this->session->userdata('tipo_doc'));
+        $this->db->like('persona_id', $this->session->userdata('persona_id'));
+        $this->db->like('fecha_entrega', $this->session->userdata('fecha_entrega'));
+        $this->db->like('fecha_vencimiento', $this->session->userdata('fecha fecha_vencimiento'));
+        $this->db->like('usuario_id', $this->session->userdata('usuario_id'));
+        $this->db->like('estado', $this->session->userdata('estado'));
+        $this->db->like('directorio', $this->session->userdata('directorio'));
+
+        $this->db->select();
+        $this->db->from('documentos');
+        return $this->db->count_all_results();
     }
 
 

@@ -62,6 +62,43 @@ class Documentos extends CI_Controller {
 		$this->load->view('documentos/ingresar');
 		$this->load->view('template/footer');
 	}
+	public function buscar()
+	{
+		if ($this->input->post('action') == 'Buscar') 
+		{
+			$array = array(
+					'expediente' => $this->input->post('expediente'),
+					'nombre_doc'=> $this->input->post('nombre_doc'),
+					'tipo_doc'=> $this->input->post('tipo_doc'),
+					'persona_id'=> $this->input->post('persona_id'),
+					'fecha_entrega'=> $this->input->post('fecha_entrega'),
+					'fecha_vencimiento'=> $this->input->post('fecha_vencimiento'),
+					'usuario_id'=> $this->input->post('usuario_id'),
+					'estado'=> $this->input->post('estado'),	
+					'directorio'=> $this->input->post('directorio')
+			);
+			// Guardar variables globales 
+			$this->session->set_userdata( $array );
+		}
+		else
+		{
+			// Delete
+			$this->session->unset_userdata('expediente');
+			$this->session->unset_userdata('nombre_doc');
+			$this->session->unset_userdata('tipo_doc');
+			$this->session->unset_userdata('persona_id');
+			$this->session->unset_userdata('fecha_entrega');
+			$this->session->unset_userdata('fecha_vencimiento');
+			$this->session->unset_userdata('usuario_id');
+			$this->session->unset_userdata('estado');
+			$this->session->unset_userdata('directorio');
+		}
+
+		redirect(base_url('documentos/mostrar'));
+		
+	}
+
+
 
 	public function eliminar($expe)
 	{

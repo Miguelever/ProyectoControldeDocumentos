@@ -38,11 +38,11 @@
 	<div class="form-group row">
 		<div class="col-sm-6">
 			<label for="fecha_entrega">Fecha de Entrega. *</label>
-			<input type="text" class="form-control" id="fecha_entrega" name="fecha_entrega" value="<?= set_value('fecha_entrega'); ?>" placeholder="Fecha de Entrega del Documento">
+			<input type="date" class="form-control" id="fecha_entrega" name="fecha_entrega" value="<?= set_value('fecha_entrega'); ?>" placeholder="Fecha de Entrega del Documento">
 		</div>
 		<div class="col-sm-6">
 			<label for="fecha_vencimiento">Fecha de Vencimiento. *</label>
-			<input type="text" class="form-control" id="fecha_vencimiento" name="fecha_vencimiento" value="<?= set_value('fecha_vencimientocha'); ?>" placeholder="Fecha de vencimiento del Documento">
+			<input type="date" class="form-control" id="fecha_vencimiento" name="fecha_vencimiento" value="<?= set_value('fecha_vencimiento'); ?>" placeholder="Fecha de vencimiento del Documento">
 		</div>
 	</div>
 	<div class="form-group row">

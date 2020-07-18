@@ -30,7 +30,7 @@
 	<div class="form-group row">
 		<div class="col-sm-6">
 			<label for="fecha_entrega">Fecha de entrega. *</label>
-			<input type="text" class="form-control" id="fecha_entrega" name="fecha_entrega" placeholder="Ingrese la fecha de entrega" value="<?= $documentos->fecha_entrega ?>">
+			<input type="date" class="form-control" id="fecha_entrega" name="fecha_entrega" placeholder="Ingrese la fecha de entrega" value="<?= $documentos->fecha_entrega ?>">
 		</div>
 		<div class="col-sm-6">
 			<label for="fecha_vencimiento">Fecha de vencimiento. *</label>

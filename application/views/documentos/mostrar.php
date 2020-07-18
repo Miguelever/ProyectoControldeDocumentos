@@ -19,7 +19,32 @@
     </tr>
   </thead>
   <tbody>
-  
+
+      <tr>
+      <form action="<?= base_url('documentos/buscar')?>" method ="POST" class="form-horizontal">
+        <th> <input class="form-control" type="text" name="expediente" value="<?= ($this->session->userdata('expediente') != NULL) ? $this->session->userdata('expediente') : ''  ?>"></th>
+        <th> <input class="form-control" type="text" name="nombre_doc" value="<?= ($this->session->userdata('nombre_doc') != NULL) ? $this->session->userdata('nombre_doc') : ''  ?>"></th>
+        <th> <input class="form-control" type="text" name="tipo_doc" value="<?= ($this->session->userdata('tipo_doc') != NULL) ? $this->session->userdata('tipo_doc') : ''  ?>"></th>
+        <th> <input class="form-control" type="text" name="persona_id" value="<?= ($this->session->userdata('persona_id') != NULL) ? $this->session->userdata('persona_id') : ''  ?>"></th>
+        <th> <input class="form-control" type="text" name="fecha_entrega" value="<?= ($this->session->userdata('fecha_entrega') != NULL) ? $this->session->userdata('fecha_entrega') : ''  ?>"></th>
+        <th> <input class="form-control" type="text" name="fecha_vencimiento" value="<?= ($this->session->userdata('fecha_vencimiento') != NULL) ? $this->session->userdata('fecha_vencimiento') : ''  ?>"></th>
+        <th> <input class="form-control" type="text" name="usuario_id"value="<?= ($this->session->userdata('usuario_id') != NULL) ? $this->session->userdata('usuario_id') : ''  ?>"></th>
+        <th> <input class="form-control" type="text" name="estado"value="<?= ($this->session->userdata('estado') != NULL) ? $this->session->userdata('estado') : ''  ?>"></th>
+        <th> <input class="form-control" type="text" name="directorio"value="<?= ($this->session->userdata('directorio') != NULL) ? $this->session->userdata('directorio') : ''  ?>"></th>
+
+        <th> 
+          <div class="row">
+              <div class="col-md-5 col-xs-5">
+                 <button type="submit" class="btn btn-primary" name="action" value="Buscar"><i class="fa fa-fw fa-search"></i></button>
+              </div> <!-- col-6 closed -->
+              <div class="col-md-5 col-xs-5 pull-right">
+                  <button type="submit" class="btn btn-primary" name="action" value="Recargar"><i class="fa fa-fw fa-refresh"></i></button>
+              </div> <!-- col-6 closed -->
+          </div> <!-- row ends -->
+        </th>
+        </form>
+       </tr>
+
   	<?php foreach ($documentos as $doc): ?>  
     	<tr>
       		<th scope="row"><?php echo $doc['expediente']; ?></th>
