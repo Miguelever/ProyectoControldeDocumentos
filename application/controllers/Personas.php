@@ -15,11 +15,12 @@ class Personas extends CI_Controller {
 	public function mostrar()
 	{
 		
+		
 		$this->load->library('pagination');
 		
 		$config['base_url'] = base_url('personas/mostrar');
 		$config['total_rows'] = $this->Personas_model->get_count();
-		$config['per_page'] = 15;
+		$config['per_page'] = 10;
 		$config['uri_segment'] = 3;
 		// $config['num_links'] = 3;
 		$config['first_link'] = 'Inicio';
@@ -65,7 +66,8 @@ class Personas extends CI_Controller {
 		$data['personas'] = $this->Personas_model->get_personas($config['per_page'] , $page);
 
 		//$data['personas'] = $this->Personas_model->getDataPersonas();
-		$this->load->view('template/header');
+		$data['activar'] = 'persona';
+		$this->load->view('template/header', $data);
 		$this->load->view('personas/mostrar', $data);
 		$this->load->view('template/footer');
 	}
@@ -112,7 +114,8 @@ class Personas extends CI_Controller {
 	public function editar($id)
 	{
 		$data['persona'] = $this->Personas_model->get_by_id($id);
-		$this->load->view('template/header');
+		$data['activar'] = 'persona';
+		$this->load->view('template/header', $data);
 		$this->load->view('personas/editar', $data);
 		$this->load->view('template/footer');
 	}
@@ -146,7 +149,8 @@ class Personas extends CI_Controller {
         if ($this->form_validation->run() == FALSE) 
         {
         	$data['persona'] = $this->Personas_model->get_by_id($id);
-        	$this->load->view('template/header');
+        	$data['activar'] = 'persona';
+        	$this->load->view('template/header', $data);
 			$this->load->view('personas/editar', $data);
 			$this->load->view('template/footer');
         } 
@@ -166,9 +170,11 @@ class Personas extends CI_Controller {
 		}
 	}
 
-	public function crear()
+	public function ingresar()
 	{
-		$this->load->view('template/header');
+		$data['activar'] = 'persona';
+		
+		$this->load->view('template/header', $data);
 		$this->load->view('personas/ingresar');
 		$this->load->view('template/footer');
 	}
@@ -197,7 +203,8 @@ class Personas extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) 
         {
-        	$this->load->view('template/header');
+        	$data['activar'] = 'persona';
+        	$this->load->view('template/header', $data);
 			$this->load->view('personas/ingresar');
 			$this->load->view('template/footer');
         } 

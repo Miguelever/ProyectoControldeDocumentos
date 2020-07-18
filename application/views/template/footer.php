@@ -1,50 +1,43 @@
 <!-- End magic here -->
-        </main>
+</section>
+      <!-- /wrapper -->
+    </section>
+    <!-- /MAIN CONTENT -->
+    <!--main content end-->
+    <!--footer start-->
+    <footer class="site-footer">
+      <div class="text-center">
+        <p>
+          &copy; Copyrights <strong>Dashio</strong>. All Rights Reserved
+        </p>
+        <div class="credits">
+          <!--
+            You are NOT allowed to delete the credit link to TemplateMag with free version.
+            You can delete the credit link only if you bought the pro version.
+            Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+            Licensing information: https://templatemag.com/license/
+          -->
+          Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
+        </div>
+        <a href="blank.html#" class="go-top">
+          <i class="fa fa-angle-up"></i>
+          </a>
       </div>
-    </div>
+    </footer>
+    <!--footer end-->
+  </section>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="<?= base_url('assets/lib/jquery/jquery.min.js')?>"></script>
+  <script src="<?= base_url('assets/lib/bootstrap/js/bootstrap.min.js')?>"></script>
+  <script src="<?= base_url('assets/lib/jquery-ui-1.9.2.custom.min.js')?>"></script>
+  <script src="<?= base_url('assets/lib/jquery.ui.touch-punch.min.js')?>"></script>
+  <script class="include" type="text/javascript" src="<?= base_url('assets/lib/jquery.dcjqaccordion.2.7.js')?>"></script>
+  <script src="<?= base_url('assets/lib/jquery.scrollTo.min.js')?>"></script>
+  <script src="<?= base_url('assets/lib/jquery.nicescroll.js')?>" type="text/javascript"></script>
+  <!--common script for all pages-->
+  <script src="<?= base_url('assets/lib/common-scripts.js')?>"></script>
+  <!--script for this page-->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="<?= base_url('assets/js/bootstrap.min.js');?>"></script>
-    <script src="<?= base_url('assets/js/jquery-3.5.1.min.js');?>"></script>
+</body>
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-    <script>
-      feather.replace()
-    </script>
-
-    <!-- Graphs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script>
-      var ctx = document.getElementById("myChart");
-      var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          datasets: [{
-            data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
-            lineTension: 0,
-            backgroundColor: 'transparent',
-            borderColor: '#007bff',
-            borderWidth: 4,
-            pointBackgroundColor: '#007bff'
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: false
-              }
-            }]
-          },
-          legend: {
-            display: false,
-          }
-        }
-      });
-    </script>
-  </body>
 </html>

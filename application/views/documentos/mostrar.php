@@ -14,7 +14,7 @@
       <th scope="col">Fecha de Vencimiento</th>
       <th scope="col">Usuario ID</th>
       <th scope="col">Estado</th>
-      <th scope="col">Directorio</th>
+      <th scope="col">Directorio</th> 
       <th scope="col" class="text-center">Acciones</th>
     </tr>
   </thead>

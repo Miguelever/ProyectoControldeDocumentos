@@ -50,7 +50,8 @@ class Documentos extends CI_Controller {
 
 
 		//$data['documentos'] = $this->Documentos_model->getDataDocumentos();
-		$this->load->view('template/header');
+		$data['activar'] = 'documentos';
+		$this->load->view('template/header', $data);
 		$this->load->view('documentos/mostrar', $data);
 		$this->load->view('template/footer');
 
@@ -58,7 +59,8 @@ class Documentos extends CI_Controller {
 
 	public function ingresar()
 	{
-		$this->load->view('template/header');
+		$data['activar'] = 'documentos';
+		$this->load->view('template/header', $data);
 		$this->load->view('documentos/ingresar');
 		$this->load->view('template/footer');
 	}
@@ -110,7 +112,8 @@ class Documentos extends CI_Controller {
 	public function editar($expe)
 	{
 		$data['documentos'] = $this->Documentos_model->get_by_id($expe);
-		$this->load->view('template/header');
+		$data['activar'] = 'documentos';
+		$this->load->view('template/header', $data);
 		$this->load->view('documentos/editar', $data);
 		$this->load->view('template/footer');
 	}
@@ -139,7 +142,8 @@ class Documentos extends CI_Controller {
 			if ($this->form_validation->run() == FALSE) 
 		    {
 		    	$data['documentos'] = $this->Documentos_model->get_by_id($expe);
-		    	$this->load->view('template/header');
+		    	$data['activar'] = 'documentos';
+		    	$this->load->view('template/header', $data);
 				$this->load->view('documentos/editar', $data);
 				$this->load->view('template/footer');
 		    } 
@@ -163,7 +167,8 @@ class Documentos extends CI_Controller {
 
 	public function crear()
 	{
-		$this->load->view('template/header');
+		$data['activar'] = 'documentos';
+		$this->load->view('template/header', $data);
 		$this->load->view('documentos/ingresar');
 		$this->load->view('template/footer');
 	}
@@ -185,7 +190,8 @@ class Documentos extends CI_Controller {
 
 			if ($this->form_validation->run() == FALSE) 
 		    {
-		    	$this->load->view('template/header');
+		    	$data['activar'] = 'documentos';
+		    	$this->load->view('template/header', $data);
 				$this->load->view('documentos/ingresar');
 				$this->load->view('template/footer');
 		    } 
