@@ -47,6 +47,8 @@ class Documentos_model extends CI_Model {
         $this->db->like('estado', $this->session->userdata('estado'));
         $this->db->like('directorio', $this->session->userdata('directorio'));
 
+        
+        
         $this->db->limit($limit, $offset);
         $query = $this->db->get('documentos');
 

@@ -1,4 +1,3 @@
-<!--<?php print_r($activepersona); ?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,7 +98,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="login.html">Logout</a></li>
+          <li><a class="logout" href="<?= base_url('login/logout') ?>">Salir</a></li>
         </ul>
       </div>
     </header>
@@ -113,9 +112,11 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="<?= base_url('assets/img/ui-raquel.jpg')?>" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Miss Raquel</h5>
+          <h5 class="centered"><?= $this->session->userdata('nombreusuario')?></h5>
+          <center><h6 class="centered"><?= $this->session->userdata('cargousuario')?></h6></center>
+          <br>
           <li class="sub-menu">
-            <a  class="<?= $activar=='documentos' ? 'active' : '' ?>" href="javascript:;">
+            <a class="<?= $this->uri->segment(1) == 'documentos' ? 'active' : '' ?>" href="javascript:;">
               <i class="fa fa-book"></i>
               <span>Documentos</span>
               </a>
@@ -125,7 +126,7 @@
             </ul>
           </li>
           <li class="sub-menu">
-            <a  class="<?= $activar=='persona' ? 'active' : '' ?>" href="javascript:;">
+            <a class="<?= $this->uri->segment(1) == 'personas' ? 'active' : '' ?>" href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Personas</span>
               </a>
@@ -135,12 +136,12 @@
             </ul>
           </li>
           <li class="sub-menu">
-            <a  class="<?= $activar=='dashboard' ? 'active' : '' ?>" href="javascript:;">
+            <a class="<?= $this->uri->segment(1) == 'info' ? 'active' : '' ?>" href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Info</span>
               </a>
             <ul class="sub">
-              <li><a href="<?= base_url('dashboard/mostrar')?>">About</a></li>
+              <li><a href="<?= base_url('info/')?>">About</a></li>
             </ul>
           </li>  
         </ul>

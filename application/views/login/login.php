@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>CtrlDocs Login</title>
 
   <!-- Favicons -->
   <link href="<?= base_url('assets/img/favicon.png')?>" rel="icon">
@@ -35,12 +35,17 @@
       *********************************************************************************************************************************************************** -->
   <div id="login-page">
     <div class="container">
-      <form class="form-login" action="<?= base_url('documentos/mostrar')?>" method="POST">
+      <form class="form-login" action="<?= base_url('login/verificar')?>" method="POST">
         <h2 class="form-login-heading">Ingresar Ahora</h2>
+        <?php if ($this->session->userdata('msg') != NULL) { ?>
+          <div class="alert alert-danger" role="alert">
+          <p><?=$this->session->userdata('msg');?></p>
+          </div>
+        <?php } ?>
         <div class="login-wrap">
-          <input type="text" class="form-control" placeholder="Usuario" autofocus>
+          <input type="text" class="form-control" name="username" placeholder="Usuario" autofocus>
           <br>
-          <input type="password" class="form-control" placeholder="Contraseña">
+          <input type="password" class="form-control" name="password" placeholder="Contraseña">
           <label class="checkbox">
             <a data-toggle="modal" href="login.html#myModal"> ¿Olvidaste tu contraseña?</a>
             </label>

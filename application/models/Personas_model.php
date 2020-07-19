@@ -37,6 +37,7 @@ class Personas_model extends CI_Model {
     // Consigue intervalos de la tabla persona
     public function get_personas($limit, $offset)
     {
+        $this->db->like('id', $this->session->userdata('id'));
         $this->db->like('dni', $this->session->userdata('dni'));
         $this->db->like('cui', $this->session->userdata('cui'));
         $this->db->like('nombre', $this->session->userdata('nombre'));
@@ -53,6 +54,7 @@ class Personas_model extends CI_Model {
     // Conteo de tabla persona
     public function get_count()
     {
+        $this->db->like('id', $this->session->userdata('id'));
         $this->db->like('dni', $this->session->userdata('dni'));
         $this->db->like('cui', $this->session->userdata('cui'));
         $this->db->like('nombre', $this->session->userdata('nombre'));

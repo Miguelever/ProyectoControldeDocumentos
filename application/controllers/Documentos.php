@@ -13,6 +13,12 @@ class Documentos extends CI_Controller {
 	
 	public function mostrar()
 	{
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
+
 		$this->load->library('pagination');
 		
 		$config['base_url'] = base_url('documentos/mostrar');
@@ -48,24 +54,32 @@ class Documentos extends CI_Controller {
 
 		$data['documentos'] = $this->Documentos_model->get_documentos($config['per_page'] , $page);
 
-
-		//$data['documentos'] = $this->Documentos_model->getDataDocumentos();
-		$data['activar'] = 'documentos';
-		$this->load->view('template/header', $data);
+		//$data['documentos'] = $this->Documentos_model->getDataDocument
+		$this->load->view('template/header');
 		$this->load->view('documentos/mostrar', $data);
 		$this->load->view('template/footer');
-
+		
 	}
 
 	public function ingresar()
 	{
-		$data['activar'] = 'documentos';
-		$this->load->view('template/header', $data);
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
+
+		$this->load->view('template/header');
 		$this->load->view('documentos/ingresar');
 		$this->load->view('template/footer');
 	}
 	public function buscar()
 	{
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
 		if ($this->input->post('action') == 'Buscar') 
 		{
 			$array = array(
@@ -104,6 +118,12 @@ class Documentos extends CI_Controller {
 
 	public function eliminar($expe)
 	{
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
+
 		$this->Documentos_model->delete($expe);
 
 		redirect(base_url('documentos/mostrar'));
@@ -111,9 +131,13 @@ class Documentos extends CI_Controller {
 
 	public function editar($expe)
 	{
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
 		$data['documentos'] = $this->Documentos_model->get_by_id($expe);
-		$data['activar'] = 'documentos';
-		$this->load->view('template/header', $data);
+		$this->load->view('template/header');
 		$this->load->view('documentos/editar', $data);
 		$this->load->view('template/footer');
 	}
@@ -121,6 +145,12 @@ class Documentos extends CI_Controller {
 
     public function actualizar($expe)
 	{
+
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
 
 		if ($this->input->post('expediente') != $expe) 
 		{
@@ -142,8 +172,7 @@ class Documentos extends CI_Controller {
 			if ($this->form_validation->run() == FALSE) 
 		    {
 		    	$data['documentos'] = $this->Documentos_model->get_by_id($expe);
-		    	$data['activar'] = 'documentos';
-		    	$this->load->view('template/header', $data);
+		    	$this->load->view('template/header');
 				$this->load->view('documentos/editar', $data);
 				$this->load->view('template/footer');
 		    } 
@@ -167,8 +196,13 @@ class Documentos extends CI_Controller {
 
 	public function crear()
 	{
-		$data['activar'] = 'documentos';
-		$this->load->view('template/header', $data);
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
+
+		$this->load->view('template/header');
 		$this->load->view('documentos/ingresar');
 		$this->load->view('template/footer');
 	}
@@ -176,6 +210,11 @@ class Documentos extends CI_Controller {
 	public function guardar()
 	{
 
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
 			$this->form_validation->set_rules('expediente', 'Expediente', 'trim|required|is_unique[documentos.expediente]', array('required' => 'El ingreso de expediente es obligatorio', 'is_unique' => 'El expediente ya se encuentra registrado'));
 			$this->form_validation->set_rules('nombre_doc', 'Nombre del Documento', 'trim|required', array('required' => 'El ingreso del Nombre del Documento es obligatorio'));
 			$this->form_validation->set_rules('tipo_doc', 'Tipo de Documento', 'trim|required', array('required' => 'El ingreso del Tipo de Documento es obligatorio'));
@@ -190,8 +229,7 @@ class Documentos extends CI_Controller {
 
 			if ($this->form_validation->run() == FALSE) 
 		    {
-		    	$data['activar'] = 'documentos';
-		    	$this->load->view('template/header', $data);
+		    	$this->load->view('template/header');
 				$this->load->view('documentos/ingresar');
 				$this->load->view('template/footer');
 		    } 
