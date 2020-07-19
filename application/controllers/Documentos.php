@@ -64,6 +64,10 @@ class Documentos extends CI_Controller {
 		$this->load->view('documentos/ingresar');
 		$this->load->view('template/footer');
 	}
+	public function registrar(){
+		$data['activar'] = 'documentos';
+		$this->load->view('documentos/registrar');
+	}
 	public function buscar()
 	{
 		if ($this->input->post('action') == 'Buscar') 
