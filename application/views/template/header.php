@@ -40,7 +40,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>CTRL<span>DOCS</span></b></a>
+      <a href="<?= base_url('documentos/mostrar')?>" class="logo"><b>CTRL<span>DOCS</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
