@@ -15,6 +15,12 @@ Website: http://Alvarez.is/
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
 
 /* BASIC THEME CONFIGURATION */
+.table .thead-dark th {
+	color: #fff;
+	background-color: #149793;
+	border-color: #149793;
+}
+
 body {
     color: #797979;
 	background: #eaeaea;
@@ -23,6 +29,7 @@ body {
     margin: 0px !important;
     font-size:13px;
 }
+
 
 ul li {
     list-style: none;
