@@ -15,7 +15,11 @@ class Personas extends CI_Controller {
 	public function mostrar()
 	{
 		
-		
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
 		$this->load->library('pagination');
 		
 		$config['base_url'] = base_url('personas/mostrar');
@@ -66,17 +70,23 @@ class Personas extends CI_Controller {
 		$data['personas'] = $this->Personas_model->get_personas($config['per_page'] , $page);
 
 		//$data['personas'] = $this->Personas_model->getDataPersonas();
-		$data['activar'] = 'persona';
-		$this->load->view('template/header', $data);
+		
+		$this->load->view('template/header');
 		$this->load->view('personas/mostrar', $data);
 		$this->load->view('template/footer');
 	}
 
 	public function buscar()
 	{
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
 		if ($this->input->post('action') == 'Buscar') 
 		{
 			$array = array(
+					'id' => $this->input->post('id'),
 					'dni' => $this->input->post('dni'),
 					'cui'=> $this->input->post('cui'),
 					'nombre'=> $this->input->post('nombre'),
@@ -91,6 +101,7 @@ class Personas extends CI_Controller {
 		else
 		{
 			// Delete
+			$this->session->unset_userdata('id');
 			$this->session->unset_userdata('dni');
 			$this->session->unset_userdata('cui');
 			$this->session->unset_userdata('nombre');
@@ -106,6 +117,11 @@ class Personas extends CI_Controller {
 
 	public function eliminar($id)
 	{
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
 		$this->Personas_model->delete($id);
 
 		redirect(base_url('personas/mostrar'));
@@ -113,9 +129,14 @@ class Personas extends CI_Controller {
 
 	public function editar($id)
 	{
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
 		$data['persona'] = $this->Personas_model->get_by_id($id);
-		$data['activar'] = 'persona';
-		$this->load->view('template/header', $data);
+		
+		$this->load->view('template/header');
 		$this->load->view('personas/editar', $data);
 		$this->load->view('template/footer');
 	}
@@ -125,6 +146,11 @@ class Personas extends CI_Controller {
 	{
 
 
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
 		// Reglas de validación para el formulario
 		$original_dni = $this->db->query( "SELECT dni FROM persona WHERE id= ".$id)->row()->dni;
 		if ($this->input->post('dni') != $original_dni) 
@@ -149,8 +175,8 @@ class Personas extends CI_Controller {
         if ($this->form_validation->run() == FALSE) 
         {
         	$data['persona'] = $this->Personas_model->get_by_id($id);
-        	$data['activar'] = 'persona';
-        	$this->load->view('template/header', $data);
+        	
+        	$this->load->view('template/header');
 			$this->load->view('personas/editar', $data);
 			$this->load->view('template/footer');
         } 
@@ -172,15 +198,25 @@ class Personas extends CI_Controller {
 
 	public function ingresar()
 	{
-		$data['activar'] = 'persona';
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
 		
-		$this->load->view('template/header', $data);
+		$this->load->view('template/header');
 		$this->load->view('personas/ingresar');
 		$this->load->view('template/footer');
 	}
 
 	public function guardar()
 	{
+		if (!$this->session->userdata('logged_in')) 
+		{
+			$this->session->set_flashdata('msg', "Acceso no autorizado.");
+			redirect(base_url('login'));
+		}
+		
 		$this->form_validation->set_rules('dni', 'DNI', 'trim|required|numeric|is_unique[persona.dni]', array('required' => 'El ingreso de DNI es obligatorio', 'numeric' => 'El ingreso de DNI es con´números', 'is_unique' => 'El DNI ya se encuentra registrado'));
 		$this->form_validation->set_rules('cui', 'CUI', 'trim|numeric|min_length[8]',array('numeric' => 'El ingreso de CUI es con números', 'min_length' => 'Ingrese 8 dígitos' ));
 		$this->form_validation->set_rules('nombre', 'Nombres', 'trim|required', array('required' => 'Ingreso de Nombre obligatorio'));
@@ -203,8 +239,8 @@ class Personas extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) 
         {
-        	$data['activar'] = 'persona';
-        	$this->load->view('template/header', $data);
+        	
+        	$this->load->view('template/header');
 			$this->load->view('personas/ingresar');
 			$this->load->view('template/footer');
         } 

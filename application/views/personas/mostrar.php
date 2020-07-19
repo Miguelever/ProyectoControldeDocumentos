@@ -1,13 +1,14 @@
+<br>
+
 <h1>Personas</h1>
-<p align="right">
-  <a class="btn btn-primary" href="<?= base_url('personas/crear') ?>" role="button">Ingresar Nuevo</a>
-</p>
+
 <br>
 <table class="table">
 
   <thead class="thead-dark">
     
     <tr>
+      <th scope="col">ID</th>
       <th scope="col">DNI</th>
       <th scope="col">CUI</th>
       <th scope="col">Nombres</th>
@@ -22,6 +23,7 @@
   <tbody>
       <tr>
       <form action="<?= base_url('personas/buscar')?>" method ="POST" class="form-horizontal">
+        <th> <input class="form-control" type="text" name="id" value="<?= ($this->session->userdata('id') != NULL) ? $this->session->userdata('id') : ''  ?>"></th>
         <th> <input class="form-control" type="text" name="dni" value="<?= ($this->session->userdata('dni') != NULL) ? $this->session->userdata('dni') : ''  ?>"></th>
         <th> <input class="form-control" type="text" name="cui" value="<?= ($this->session->userdata('cui') != NULL) ? $this->session->userdata('cui') : ''  ?>"></th>
         <th> <input class="form-control" type="text" name="nombre" value="<?= ($this->session->userdata('nombre') != NULL) ? $this->session->userdata('nombre') : ''  ?>"></th>
@@ -43,8 +45,9 @@
        </tr>
   	<?php foreach ($personas as $persona): ?>  
     	<tr>
-      		<th scope="row"><?php echo $persona['dni']; ?></th>
-      		<td><?= $persona['cui']; ?></td>
+      		<th scope="row"><?php echo $persona['id']; ?></th>
+      		<td><?= $persona['dni']; ?></td>
+          <td><?= $persona['cui']; ?></td>
       		<td><?= $persona['nombre']; ?></td>
       		<td><?= $persona['apellidos']; ?></td>
         	<td><?= $persona['cargo']; ?></td>

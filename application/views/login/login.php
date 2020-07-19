@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>CtrlDocs Login</title>
 
   <!-- Favicons -->
   <link href="<?= base_url('assets/img/favicon.png')?>" rel="icon">
@@ -35,16 +35,21 @@
       *********************************************************************************************************************************************************** -->
   <div id="login-page">
     <div class="container">
-      <form class="form-login" action="<?= site_url('documentos/mostrar')?>">
+      <form class="form-login" action="<?= base_url('login/verificar')?>" method="POST">
         <h2 class="form-login-heading">Ingresar Ahora</h2>
+        <?php if ($this->session->userdata('msg') != NULL) { ?>
+          <div class="alert alert-danger" role="alert">
+          <p><?=$this->session->userdata('msg');?></p>
+          </div>
+        <?php } ?>
         <div class="login-wrap">
-          <input type="text" class="form-control" placeholder="Usuario" autofocus>
+          <input type="text" class="form-control" name="username" placeholder="Usuario" autofocus>
           <br>
-          <input type="password" class="form-control" placeholder="Contraseña">
+          <input type="password" class="form-control" name="password" placeholder="Contraseña">
           <label class="checkbox">
             <a data-toggle="modal" href="login.html#myModal"> ¿Olvidaste tu contraseña?</a>
             </label>
-          <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> ENTRAR</button>
+          <button class="btn btn-theme btn-block" href="<?= base_url('documentos/mostrar')?>" type="submit"><i class="fa fa-lock"></i> ENTRAR</button>
           <hr>
           <div class="registration">
             ¿Todavía no tienes una cuenta?<br/>
@@ -82,11 +87,11 @@
   <!--BACKSTRETCH-->
   <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
   <script type="text/javascript" src="<?= base_url('assets/lib/jquery.backstretch.min.js')?>"></script>
-<!--  Fondo de pantalla detras del inicio de sesion: esta en notas.-->
-
-
-
-
+  <script>
+    $.backstretch("<?= base_url('assets/img/ctrldocs-bg.jpg')?>", {
+      speed: 500
+    });
+  </script>
 </body>
 
 </html>
