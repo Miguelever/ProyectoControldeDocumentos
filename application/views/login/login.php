@@ -53,7 +53,7 @@
           <hr>
           <div class="registration">
             ¿Todavía no tienes una cuenta?<br/>
-            <a class="" href="#">
+            <a class="" href="<?= base_url('documentos/registrar')?>">
               Crear Cuenta
               </a>
           </div>

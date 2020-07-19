@@ -140,7 +140,7 @@
 			<button type="submit" class="btn btn-success btn-lg btn-block">Registrarme</button>
 		</div>
 	</form>
-	<div class="text-center"> Usted ya contiene una cuenta? <a href="#">Sign in</a></div>
+	<div class="text-center"> Usted ya contiene una cuenta? <a href="<?= base_url('login')?>">Sign in</a></div>
 </div>
 </body>
 </html>
