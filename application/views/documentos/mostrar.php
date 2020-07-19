@@ -4,7 +4,8 @@
 </p>
 <br>
 <table class="table">
-  <thead class="thead-dark">
+<!--  <thead class="thead-dark">-->
+<thead class="thead-dark">
     <tr>
       <th scope="col">Expediente</th>
       <th scope="col">Nombre del Documento</th>

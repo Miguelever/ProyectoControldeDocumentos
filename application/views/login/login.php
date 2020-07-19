@@ -84,6 +84,10 @@
   <script type="text/javascript" src="<?= base_url('assets/lib/jquery.backstretch.min.js')?>"></script>
 <!--  Fondo de pantalla detras del inicio de sesion: esta en notas.-->
 
+
+
+
+
 </body>
 
 </html>
