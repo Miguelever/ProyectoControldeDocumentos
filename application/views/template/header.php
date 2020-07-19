@@ -98,11 +98,7 @@
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-<<<<<<< HEAD
           <li><a class="logout" href="<?= base_url('login/logout') ?>">Salir</a></li>
-=======
-          <li><a class="logout" href="<?= site_url('login')?>">Logout</a></li>
->>>>>>> 2d1901e572468afc967367787e43accf1043bda8
         </ul>
       </div>
     </header>

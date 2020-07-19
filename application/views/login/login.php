@@ -35,11 +35,7 @@
       *********************************************************************************************************************************************************** -->
   <div id="login-page">
     <div class="container">
-<<<<<<< HEAD
       <form class="form-login" action="<?= base_url('login/verificar')?>" method="POST">
-=======
-      <form class="form-login" action="<?= site_url('documentos/mostrar')?>">
->>>>>>> 2d1901e572468afc967367787e43accf1043bda8
         <h2 class="form-login-heading">Ingresar Ahora</h2>
         <?php if ($this->session->userdata('msg') != NULL) { ?>
           <div class="alert alert-danger" role="alert">
@@ -91,19 +87,11 @@
   <!--BACKSTRETCH-->
   <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
   <script type="text/javascript" src="<?= base_url('assets/lib/jquery.backstretch.min.js')?>"></script>
-<<<<<<< HEAD
   <script>
     $.backstretch("<?= base_url('assets/img/ctrldocs-bg.jpg')?>", {
       speed: 500
     });
   </script>
-=======
-<!--  Fondo de pantalla detras del inicio de sesion: esta en notas.-->
-
-
-
-
->>>>>>> 2d1901e572468afc967367787e43accf1043bda8
 </body>
 
 </html>

@@ -1,14 +1,8 @@
 <br>
 <h1>Bienvenido a Documentos</h1>
 <br>
-<<<<<<< HEAD
 <table class="table" > 
   <thead class="thead-dark">
-=======
-<table class="table">
-<!--  <thead class="thead-dark">-->
-<thead class="thead-dark">
->>>>>>> 2d1901e572468afc967367787e43accf1043bda8
     <tr>
       <th scope="col">Expediente</th>
       <th scope="col">Nombre del Documento</th>
