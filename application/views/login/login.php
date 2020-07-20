@@ -7,10 +7,10 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>CtrlDocs Login</title>
+  <title>Iniciar Sesion</title>
 
   <!-- Favicons -->
-  <link href="<?= base_url('assets/img/favicon.png')?>" rel="icon">
+  <link href="<?= base_url('assets/img/logo.jpeg')?>" rel="icon">
   <link href="<?= base_url('assets/img/apple-touch-icon.png')?>" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
