@@ -12,6 +12,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
 	<title>Registrarse</title>
+<!--	favicons-->
 	<link href="<?= base_url('assets/img/logo.jpeg')?>" rel="icon">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -143,76 +144,13 @@
 	</form>
 	<div class="text-center"> Usted ya contiene una cuenta? <a href="<?= base_url('login')?>">Sign in</a></div>
 </div>
+<script type="text/javascript" src="<?= base_url('assets/lib/jquery.backstretch.min.js')?>"></script>
+<script>
+	$.backstretch("<?= base_url('assets/img/ctrldocs-bg.jpg')?>", {
+		speed: 500
+	});
+</script>
 </body>
 </html>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-<form class="form-horizontal style-form" method="get">
-	<div class="form-group">
-		<label class="col-sm-2 col-sm-2 control-label">Default</label>
-		<div class="col-sm-10">
-			<input type="text" class="form-control">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 col-sm-2 control-label">Help text</label>
-		<div class="col-sm-10">
-			<input type="text" class="form-control">
-			<span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 col-sm-2 control-label">Rounder</label>
-		<div class="col-sm-10">
-			<input type="text" class="form-control round-form">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 col-sm-2 control-label">Input focus</label>
-		<div class="col-sm-10">
-			<input class="form-control" id="focusedInput" type="text" value="This is focused...">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 col-sm-2 control-label">Disabled</label>
-		<div class="col-sm-10">
-			<input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled>
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 col-sm-2 control-label">Placeholder</label>
-		<div class="col-sm-10">
-			<input type="text" class="form-control" placeholder="placeholder">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-sm-2 col-sm-2 control-label">Password</label>
-		<div class="col-sm-10">
-			<input type="password" class="form-control" placeholder="">
-		</div>
-	</div>
-	<div class="form-group">
-		<label class="col-lg-2 col-sm-2 control-label">Static control</label>
-		<div class="col-lg-10">
-			<p class="form-control-static">email@example.com</p>
-		</div>
-	</div>
-</form>
--->
