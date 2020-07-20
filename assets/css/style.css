@@ -1291,7 +1291,7 @@ PANELS CONFIGURATIONS
 #spotify {
 	background: url(../img/lorde.jpg) no-repeat center top;
 	margin-top: -15px;
-	background-attachment: relative;
+	/*background-attachment: relative;*/
 	background-position: center center;
 	min-height: 220px;
 	width: 100%;
