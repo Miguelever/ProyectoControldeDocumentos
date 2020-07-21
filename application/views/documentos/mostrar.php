@@ -13,7 +13,7 @@
       <th scope="col">Usuario ID</th>
       <th scope="col">Estado</th>
       <th scope="col">Directorio</th> 
-      <th scope="col" class="text-center">Acciones</th>
+      <th scope="col" class="text-center"  colspan="2">Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -68,12 +68,15 @@
                       
 
           ?></td>
-          <td><?= $doc['directorio']; ?></td>
+          <td><a href="../images/<?= $doc['directorio']; ?>" target="_blank"><?= $doc['directorio']; ?></a> </td>
           <td align="center">
                 <a href="<?= base_url('Documentos/editar/'.$doc['expediente']); ?>" class="text-primary"><i class="fa fa-fw fa-edit"></i> Editar</a>  
                 <a href="<?= base_url('Documentos/eliminar/'.$doc['expediente']); ?>" class="text-danger" onClick="return confirm('¿Está seguro que desea eliminar este registro?');"><i class="fa fa-fw fa-trash"></i> Eliminar</a>
           </td>
-
+           <td align="center">
+                <a href="<?= base_url('Documentos/notificar/'.$doc['expediente']); ?>" class="text-primary"><i class="fa fa-fw fa-envelope"></i> Notificar</a>  
+                
+          </td>
     	</tr>
 
 

@@ -8,7 +8,10 @@ class Documentos extends CI_Controller {
 		parent::__construct();
 		$this->load->model('Documentos_model');
 		$this->load->library('form_validation');
-		
+		$this->load->model('Personas_model');
+		$this->load->library('form_validation');
+		$this->load->helper('url');
+        $this->load->library('session');
 	}
 	
 	public function mostrar()
@@ -227,7 +230,7 @@ class Documentos extends CI_Controller {
 			$this->form_validation->set_rules('fecha_vencimiento', 'Fecha de Vencimiento', 'trim|required', array('required' => 'El ingreso del la Fecha de Vencimiento es obligatorio'));
 			$this->form_validation->set_rules('usuario_id', 'Usuario ID', 'trim|required', array('required' => 'El ingreso del Usuario ID es obligatorio'));
 			$this->form_validation->set_rules('estado', 'Estado', 'trim|required', array('required' => 'El ingreso del Estado es obligatorio'));
-			$this->form_validation->set_rules('directorio', 'Directorio', 'trim|required', array('required' => 'El ingreso del directorio es obligatorio'));
+			///$this->form_validation->set_rules('directorio', 'Directorio', 'trim|required', array('required' => 'El ingreso del directorio es obligatorio'));
 
 
 
@@ -247,7 +250,10 @@ class Documentos extends CI_Controller {
 							'fecha_vencimiento'=> $this->input->post('fecha_vencimiento'),
 							'usuario_id'=> $this->input->post('usuario_id'),
 							'estado'=> $this->input->post('estado'),
-							'directorio'=> $this->input->post('directorio'));
+							'directorio'=> $this->input->post('expediente').".pdf");
+
+				
+				$this->subir($this->input->post('expediente'));
 
 				$this->Documentos_model->insert($data);
 				redirect(base_url('documentos/mostrar'));
@@ -255,8 +261,89 @@ class Documentos extends CI_Controller {
 		
 	}
 
+public function notificar($expe)
+	{
+		$data['documentos'] = $this->Documentos_model->get_by_id($expe);
+		
+		$data['persona'] = $this->Personas_model->get_by_id($data['documentos']-> persona_id);
+		//print_r($data['persona']);
+		$data['activar'] = 'documentos';
+		$this->load->view('template/header', $data);
+		$this->load->view('documentos/notificar', $data);
+		$this->load->view('template/footer');
+
 
 }
 
+public function subir($numero_expediente) {
+        $config['upload_path'] = './images/';
+        $config['allowed_types'] = 'pdf';
+        $config['max_size'] = 2000;
+        $config['max_width'] = 1500;
+        $config['max_height'] = 1500;
+        $config['file_name'] = $numero_expediente;
+
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('profile_image')) {
+            $error = array('error' => $this->upload->display_errors());
+           // print_r($error);
+
+            //$this->load->view('files/upload_form', $error);
+        } else {
+            $data = array('image_metadata' => $this->upload->data());
+
+            //$this->load->view('files/upload_result', $data);
+        }
+    }
+	
+	public function guardarNotificar()
+	{
+
+				$email = $this->input->post('email');
+				$asunto = $this->input->post('asunto');
+				$mensaje = $this->input->post('mensaje');
+		    	/*print_r($this->input->post('expediente'));
+		    	
+		    	print_r($this->input->post('asunto'));
+		    	print_r($this->input->post('mensaje'));
+				*/
+
+		    	//Cargamos la librería email
+       			$this->load->library('email');
+
+       			//ini_set();
+				$this->email->from('saingrid@gmail.com', 'Ingrid');
+				$this->email->to($email);
+				//$this->email->cc('another@another-example.com');
+				//$this->email->bcc('them@their-example.com');
+
+				$this->email->subject($asunto);
+				$this->email->message($mensaje);
+
+				$this->email->send();
+       			
+		        echo $this->email->print_debugger();
+		    	/*
+		    	$data = array('expediente' => $this->input->post('expediente'),
+							'nombre_doc'=> $this->input->post('nombre_doc'),
+							'tipo_doc'=> $this->input->post('tipo_doc'),
+							'persona_id'=> $this->input->post('persona_id'),
+							'fecha_entrega'=> $this->input->post('fecha_entrega'),
+							'fecha_vencimiento'=> $this->input->post('fecha_vencimiento'),
+							'usuario_id'=> $this->input->post('usuario_id'),
+							'estado'=> $this->input->post('estado'),
+							'directorio'=> $this->input->post('directorio'));
+				*/
+				//$this->Documentos_model->insert($data);
+				//redirect(base_url('documentos/mostrar'));
+			//}
+		
+	}
+
+
+
+}
 /* End of file Documentos.php */
 /* Location: ./application/controllers/Documentos.php */
